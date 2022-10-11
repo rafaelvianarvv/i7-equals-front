@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+.novo_container {
+    width: 450px;
+    margin: 0 auto;
+    padding: 3em;
+}
+
+.container_cabecalho {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 0.5em;
+}
+
+.container_lista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+}
+
+.titulo {
+    margin-bottom: .6em;
+    font-weight: bold;
+    font-size: 1.3em;
+    width: 90%;
+}
+
+.novo_form {
+    width: 100%;
+    margin: 2em 0;
+}

@@ -1,0 +1,49 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2em;
+}
+
+.container h1 {
+    padding: 0.5em;
+    margin: auto 0;
+}
+
+.container_interno_lista {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5emem;
+}
+
+.container_novo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo {
+    margin-bottom: .6em;
+    font-weight: bold;
+    font-size: 1.3em;
+    width: 90%;
+}
+
+.novo_form {
+    width: 100%;
+    margin: 2em 0;
+}
+
+.campo_pesquisa {
+    padding: 0.5em;
+}
+
+.cabecalho {
+    background-color: black;
+}
