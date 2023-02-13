@@ -48,10 +48,9 @@ export default function MenuTopoTitulos({nome}) {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={handleClose}><Link to="/titulosEnviados">Enviados</Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link to="/titulosConciliados">Conciliados</Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link to="/titulosBaixados">Baixados</Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link to="/tituloReceber">A Receber</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link to="/loteEnviado">Enviados Equals</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link to="/loteConciliado">Conciliados</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link to="/loteRecebido">Baixados</Link></MenuItem>
         </Menu>
       </ThemeProvider>
     </div>

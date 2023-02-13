@@ -28,8 +28,9 @@ function Conciliacao() {
     empty: true,
   });
   
-  function criarNovaConciliacao(novaConciliacao) {        
-    fetch(`${BASE_URL}${URL_CONCILIAR}?dataInicio=${moment(novaConciliacao.dataInicio).format('DD-MM-YYYY')}&dataFim=${moment(novaConciliacao.dataFim).format('DD-MM-YYYY')}` , {
+  function criarNovaConciliacao(data) {   
+    console.log('antes de enviaor: ' + moment(data).format('DD-MM-YYYY'));
+    fetch(`${BASE_URL}${URL_CONCILIAR}?data=${moment(data).format('DD-MM-YYYY')}` , {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

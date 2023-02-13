@@ -60,6 +60,28 @@ function AdquirenteNovoForm() {
                         />
                 </div>
                 <div>
+                    <Input
+                        type="text"
+                        text="Código do Banco"
+                        name="codigoBanco"
+                        placeholder="Insira o Código do Banco"
+                        handleOnChange={handleChange}
+                        value={adquirente.banco ? adquirente.banco : ''}
+                        maxLen="50"
+                        />
+                </div>
+                <div>
+                    <Input
+                        type="text"
+                        text="Código da Moeda"
+                        name="codigoMoeda"
+                        placeholder="Insira o Código da Moeda"
+                        handleOnChange={handleChange}
+                        value={adquirente.moeda ? adquirente.moeda : ''}
+                        maxLen="50"
+                        />
+                </div>
+                <div>
                     <SubmitButton text={"Gravar Adquirente"} />
                 </div>
             </form>

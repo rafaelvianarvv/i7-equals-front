@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Button from "../../layout/components/Button";
@@ -6,18 +7,17 @@ import styles from "./Conciliacao.module.css";
 
 function ConciliacaoNovoForm({criarConciliacao}) {
     const navigate = useNavigate();
-    const [novaConciliacao, setNovaConciliacao] = useState([])
+    const [data, setData] = useState([])
     
     function handleChangeDataInicial(data) {
-        setNovaConciliacao({...novaConciliacao, "dataInicio": data})
-    }
-    function handleChangeDataFim(data) {
-        setNovaConciliacao({...novaConciliacao, "dataFim": data})
+        console.log(moment(data).format('DD-MM-YYYY'));
+        setData(data);
     }
 
     const submit = (e) => {
         e.preventDefault();
-        criarConciliacao(novaConciliacao);
+        console.log('data: ' + moment(data).format('DD-MM-YYYY'));
+        criarConciliacao(data);
      }
 
     return (
@@ -29,18 +29,18 @@ function ConciliacaoNovoForm({criarConciliacao}) {
                         <div className={styles.campo_pesquisa}>
 
                             <InputData
-                                text="Data Inicial"
-                                value={novaConciliacao.dataInicio ? novaConciliacao.dataInicio : ''}
+                                text="Data"
+                                value={data ? data : ''}
                                 handleOnChange={handleChangeDataInicial}
                             />
                         </div>
-                        <div className={styles.campo_pesquisa}>
+                        {/* <div className={styles.campo_pesquisa}>
                             <InputData
                                 text="Data Final"
                                 value={novaConciliacao.dataFim ? novaConciliacao.dataFim : ''}
                                 handleOnChange={handleChangeDataFim}
                             />
-                        </div>                    
+                        </div>                     */}
                         <div>
                             <Button text='Enviar' />
                         </div>

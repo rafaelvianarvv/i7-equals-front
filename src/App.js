@@ -3,10 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/pages/home/Home';
 import Navbar from "./components/layout/modulos/Navbar";
 import Adquirentes from './components/pages/parametros/adquirente/Adquirentes';
-import TitulosEnviados from './components/pages/titulos/enviados/TitulosEnviados';
-import TitulosConciliados from './components/pages/titulos/conciliados/TitulosConciliados';
-import TitulosBaixados from './components/pages/titulos/baixados/TitulosBaixados';
-import TitulosEnviadosPesquisados from './components/pages/titulos/enviados/TitulosEnviadosPesquisados';
 import Bandeiras from "./components/pages/parametros/bandeira/Bandeiras";
 import Produtos from "./components/pages/parametros/produto/Produtos";
 import BandeiraNovoForm from "./components/pages/parametros/bandeira/BandeiraNovoForm";
@@ -18,6 +14,10 @@ import CobrancasWinthor from "./components/pages/parametros/cobrancaWinthor/Cobr
 import CobrancaWinthorNovoForm from "./components/pages/parametros/cobrancaWinthor/CobrancaWinthorNovoForm";
 import Conciliacao from "./components/pages/conciliacao/Conciliacao";
 import Footer from "./components/layout/modulos/Footer";
+import LoteEnviado from "./components/pages/titulos/loteEnviado/LoteEnviado";
+import LoteConciliado from "./components/pages/titulos/loteConciliado/LoteConciliado";
+import LoteReceber from "./components/pages/titulos/loteReceber/LoteReceber";
+import LoteRecebido from "./components/pages/titulos/loteRecebido/LoteRecebido";
 
 function App() {
   return (
@@ -26,10 +26,11 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/titulosEnviados" element={<TitulosEnviados />} />
-        <Route path="/titulosEnviadosPesquisados" element={<TitulosEnviadosPesquisados />} />
-        <Route path="/titulosConciliados" element={<TitulosConciliados />} />
-        <Route path="/titulosBaixados" element={<TitulosBaixados />} />
+
+        <Route path="/loteEnviado" element={<LoteEnviado />} />
+        <Route path="/loteConciliado" element={<LoteConciliado />} />
+        <Route path="/loteReceber" element={<LoteReceber />} />
+        <Route path="/loteRecebido" element={<LoteRecebido />} />
 
         <Route path="/bandeiras" element={<Bandeiras />} />
         <Route path="/bandeiraNovo" element={<BandeiraNovoForm />} />

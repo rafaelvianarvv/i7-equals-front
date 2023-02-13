@@ -1,5 +1,5 @@
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 
 import styles from "./InputData.module.css";
 
@@ -12,6 +12,7 @@ function InputDatePicker({ text, handleOnChange, value }) {
   return (
     <div className={styles.form_control}>
         <label>{text}</label>
+{/* 
         <DatePicker 
                 selected={value}
                 onChange={date => handleOnChange(date)} 
@@ -19,6 +20,7 @@ function InputDatePicker({ text, handleOnChange, value }) {
                 placeholderText={text}
                 dateFormat='dd/MM/yyyy'
                 /> 
+         */}
     </div>
   );
 }

@@ -27,7 +27,10 @@ export const URL_COBRANCA_WINTHOR_NOVO=process.env.REACT_APP_URL_COBRANCA_WINTHO
 
 /* CONCILIAÇÕES */
 export const URL_CONCILIACAO=process.env.REAC_APP_URL_CONCILIACAO ?? "/v1/conciliacao";
-export const URL_CONCILIAR=process.env.REAC_APP_URL_CONCILIAR ?? "/v1/conciliar";
+export const URL_CONCILIAR=process.env.REAC_APP_URL_CONCILIAR ?? "/v1/conciliacao/iniciar";
 
 /* TITULOS */
-export const URL_TITULOS_ENVIADOS=process.env.REAC_APP_URL_TITULOS_ENVIADOS ?? "/v1/receber/enviados";
+export const URL_TITULOS_ENVIADOS=process.env.REAC_APP_URL_TITULOS_ENVIADOS ?? "/v1/vendas/enviadas";
+export const URL_TITULOS_CONCILIADOS=process.env.REAC_APP_URL_TITULOS_CONCILIADOS ?? "/v1/vendas/conciliadas";
+export const URL_TITULOS_RECEBER=process.env.REAC_APP_URL_TITULOS_RECEBER ?? "/v1/vendas/receber";
+export const URL_TITULOS_BAIXADOS=process.env.REAC_APP_URL_TITULOS_BAIXADOS ?? "/v1/vendas/baixadas";

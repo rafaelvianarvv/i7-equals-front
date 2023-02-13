@@ -16,15 +16,25 @@ function AdquirentesLista({ page, onChange }) {
         <Table aria-label="collapsible table">
           <TableHead>
             <TableRow>
-              <TableCell align="right">Código</TableCell>
+              <TableCell align="center">Código</TableCell>              
               <TableCell>Descrição</TableCell>
+              <TableCell align="center">Código Fornecedor</TableCell>
+              <TableCell align="center">Código Banco</TableCell>
+              <TableCell align="center">Código Moeda</TableCell>
+              <TableCell align="center">Conta POS</TableCell>
+              <TableCell align="center">Conta Tx Adm</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {page.content.map((row, index) => (
                 <TableRow sx={{ "& > *": { borderBottom: "unset" } }} key={index}>
-                    <TableCell align="right" width={50}>{row.codigo}</TableCell>
+                    <TableCell align="center" width={50}>{row.codigo}</TableCell>
                     <TableCell>{row.descricao}</TableCell>
+                    <TableCell align="center">{row.fornecedor}</TableCell>
+                    <TableCell align="center">{row.banco}</TableCell>
+                    <TableCell align="center">{row.moeda}</TableCell>
+                    <TableCell align="center">{row.contaPos}</TableCell>
+                    <TableCell align="center">{row.contaTaxaAdmCartao}</TableCell>
                 </TableRow>
             ))}
           </TableBody>
