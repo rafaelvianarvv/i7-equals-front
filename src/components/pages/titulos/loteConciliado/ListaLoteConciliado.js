@@ -30,7 +30,7 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">{lote.numeroLote}</TableCell>
+        <TableCell component="th" scope="row">{lote.numeroLote}</TableCell>        
         <TableCell align="right">{lote.dataMovimento}</TableCell>
         <TableCell align="right">{lote.quantidadeTitulos}</TableCell>
         <TableCell align="right">{lote.valorTotalTitulos}</TableCell>
@@ -47,16 +47,20 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell align="right">Numtransvenda</TableCell>
+                    <TableCell>Numtransvenda</TableCell>
                     <TableCell align="right">Prest</TableCell>
+                    <TableCell align="right">Total Prests</TableCell>
                     <TableCell align="right">NSU</TableCell>
                     <TableCell align="right">Autorização</TableCell>
-                    <TableCell align="right">Data Venda</TableCell>
-                    <TableCell align="right">Data Vencimento</TableCell>
-                    <TableCell align="right">Data Recebimento</TableCell>
+                    <TableCell align="center">Data Venda</TableCell>
+                    <TableCell align="center">Data Vencimento</TableCell>
+                    <TableCell align="center">Data Venc Orig</TableCell>
+                    <TableCell align="center">Data Recebimento</TableCell>
                     <TableCell align="right">Valor</TableCell>
+                    <TableCell align="right">Valor Orig</TableCell>
                     <TableCell align="right">Valor Recebido</TableCell>
                     <TableCell align="right">Valor Comissão</TableCell>
+                    <TableCell align="left">Situação</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -64,14 +68,18 @@ function Row(props) {
                     <TableRow key={index}>
                       <TableCell component="th" scope="row">{titulo.numeroTransacao}</TableCell>
                       <TableCell align="right">{titulo.numeroParcela}</TableCell>
+                      <TableCell align="right">{titulo.totalParcelas}</TableCell>
                       <TableCell align="right">{titulo.numeroNsu}</TableCell>
                       <TableCell align="right">{titulo.numeroAutorizacao}</TableCell>
-                      <TableCell align="right">{titulo.dataVenda}</TableCell>
-                      <TableCell align="right">{titulo.dataVencimento}</TableCell>
-                      <TableCell align="right">{titulo.dataPagamento}</TableCell>
+                      <TableCell align="center">{titulo.dataVenda}</TableCell>
+                      <TableCell align="center">{titulo.dataVencimento}</TableCell>
+                      <TableCell align="center">{titulo.dataVencimentoOrigem}</TableCell>
+                      <TableCell align="center">{titulo.dataPagamento}</TableCell>
                       <TableCell align="right">{titulo.valor}</TableCell>
+                      <TableCell align="right">{titulo.valorOrigem}</TableCell>
                       <TableCell align="right">{titulo.valorPago}</TableCell>
                       <TableCell align="right">{titulo.valorDesconto}</TableCell>
+                      <TableCell align="left">{titulo.situacao}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -91,7 +99,7 @@ export default function ListaLoteRecebido( props ) {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Numero Lote</TableCell>
+            <TableCell>Numero Lote</TableCell>            
             <TableCell align="right">Data Movimento</TableCell>
             <TableCell align="right">Qtde Titulos</TableCell>
             <TableCell align="right">Valor Total</TableCell>

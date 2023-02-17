@@ -50,6 +50,7 @@ export default function MenuTopoTitulos({nome}) {
         >
           <MenuItem onClick={handleClose}><Link to="/loteEnviado">Enviados Equals</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link to="/loteConciliado">Conciliados</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link to="/loteReceber">A Receber</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link to="/loteRecebido">Baixados</Link></MenuItem>
         </Menu>
       </ThemeProvider>

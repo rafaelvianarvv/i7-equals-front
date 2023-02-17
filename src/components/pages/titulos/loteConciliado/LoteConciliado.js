@@ -13,7 +13,7 @@ import ListaLoteConciliado from "./ListaLoteConciliado";
 
 function LoteConciliado() {
   const [removeLoading, setRemoveLoading] = useState(true);
-  const [consulta, setConsulta] = useState({dataInicial: '01-01-2023', dataFinal: '31-01-2023'});
+  const [consulta, setConsulta] = useState({dataInicial: '01-10-2022', dataFinal: '28-02-2023'});
 
   const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState({
@@ -74,7 +74,7 @@ function LoteConciliado() {
                 
                   <Input 
                     type="text"
-                    text="Data Inicial"
+                    text="Data Conciliação Inicial"
                     name="dataInicial"
                     placeholder="Data Inicial"
                     handleOnChange={handleChange}
@@ -85,7 +85,7 @@ function LoteConciliado() {
                 <div className={styles.campo_pesquisa}>
                   <Input 
                     type="text"
-                    text="Data Final"
+                    text="Data Conciliação Final"
                     name="dataFinal"
                     placeholder="Data Final"
                     handleOnChange={handleChange}
@@ -109,8 +109,7 @@ function LoteConciliado() {
           )}
 
           {page.content.length > 0 && (
-            <div>
-              {!removeLoading && <Loading />}
+            <div>             
               <div>
                 <ListaLoteConciliado lotes = {page.content} />
               </div>              

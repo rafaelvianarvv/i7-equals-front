@@ -13,7 +13,7 @@ import ListaLoteRecebido from "./ListaLoteRecebido";
 
 function LoteRecebido() {
   const [removeLoading, setRemoveLoading] = useState(true);
-  const [consulta, setConsulta] = useState({dataInicial: '01-01-2023', dataFinal: '31-01-2023'});
+  const [consulta, setConsulta] = useState({dataInicial: '01-10-2022', dataFinal: '31-01-2023'});
 
   const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState({
@@ -74,7 +74,7 @@ function LoteRecebido() {
                 
                   <Input 
                     type="text"
-                    text="Data Inicial"
+                    text="Data Baixa Inicial"
                     name="dataInicial"
                     placeholder="Data Inicial"
                     handleOnChange={handleChange}
@@ -85,7 +85,7 @@ function LoteRecebido() {
                 <div className={styles.campo_pesquisa}>
                   <Input 
                     type="text"
-                    text="Data Final"
+                    text="Data Baixa Final"
                     name="dataFinal"
                     placeholder="Data Final"
                     handleOnChange={handleChange}
@@ -110,7 +110,6 @@ function LoteRecebido() {
 
           {page.content.length > 0 && (
             <div>
-              {!removeLoading && <Loading />}
               <div>
                 <ListaLoteRecebido lotes = {page.content} />
               </div>              

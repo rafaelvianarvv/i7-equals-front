@@ -64,10 +64,10 @@ function Conciliacao() {
   return (
     <div className={styles.container}>
         <div>
-          <div className={styles.container_novo}>
+          {/* <div className={styles.container_novo}>
               <ConciliacaoNovoForm criarConciliacao={criarNovaConciliacao}/>
           </div>
-          <hr />
+          <hr /> */}
           <div className={styles.container_interno_lista}>
             <h1>Últimas Conciliações</h1>
             {message && <Message type={type} msg={message} />}        

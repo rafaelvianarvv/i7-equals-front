@@ -1,6 +1,7 @@
-// import { DatePicker, LocalizationProvider } from '@material-ui/lab';
-// import AdapterLuxon from '@mui/lab/AdapterLuxon';
-// import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import styles from "./InputData.module.css";
 
 function InputData({ text, handleOnChange, value }) {
@@ -12,8 +13,18 @@ function InputData({ text, handleOnChange, value }) {
   return (
     <div className={styles.form_control}>
       <label>{text}</label>
-{/*       
-      <LocalizationProvider dateAdapter={AdapterLuxon} locale={'pt'}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          label={text}
+          format="DD-MM-YYYY"
+          value={value}
+          onChange={(newValue) => {
+            handleChange(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+      {/* <LocalizationProvider dateAdapter={AdapterLuxon} locale={'pt'}>
         <DatePicker
           disableFuture
           format="DD-MM-YYYY"
@@ -23,8 +34,7 @@ function InputData({ text, handleOnChange, value }) {
           }}
           renderInput={(params) => <TextField {...params} />}
         />
-      </LocalizationProvider>        
-       */}
+      </LocalizationProvider>         */}
     </div>
   );
 }

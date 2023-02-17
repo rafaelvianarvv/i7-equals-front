@@ -10,10 +10,11 @@ import Pagination from "../../../layout/components/Pagination";
 import { BASE_URL, URL_TITULOS_ENVIADOS } from "../../../../utils/requests";
 import Loading from "../../../layout/components/Loading";
 import ListaLoteEnviado from "./ListaLoteEnviado";
+import InputData from "../../../layout/components/InputData";
 
 function LoteEnviado() {
   const [removeLoading, setRemoveLoading] = useState(true);
-  const [consulta, setConsulta] = useState({dataInicial: '01-01-2023', dataFinal: '31-01-2023'});
+  const [consulta, setConsulta] = useState({dataInicial: '17-02-2023', dataFinal: '28-02-2023'});
 
   const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState({
@@ -70,11 +71,15 @@ function LoteEnviado() {
 
               <div className={styles.pesquisa_titulos_container_campos}>
                 
+              {/* <div className={styles.campo_pesquisa}>
+                <InputData text={"Data"} handleOnChange={handleChange} value={consulta.dataInicial} />
+              </div> */}
+
                 <div className={styles.campo_pesquisa}>
                 
                   <Input 
                     type="text"
-                    text="Data Inicial"
+                    text="Data Envio Inicial"
                     name="dataInicial"
                     placeholder="Data Inicial"
                     handleOnChange={handleChange}
@@ -85,7 +90,7 @@ function LoteEnviado() {
                 <div className={styles.campo_pesquisa}>
                   <Input 
                     type="text"
-                    text="Data Final"
+                    text="Data Envio Final"
                     name="dataFinal"
                     placeholder="Data Final"
                     handleOnChange={handleChange}
@@ -110,7 +115,6 @@ function LoteEnviado() {
 
           {page.content.length > 0 && (
             <div>
-              {!removeLoading && <Loading />}
               <div>
                 <ListaLoteEnviado lotes = {page.content} />
               </div>              

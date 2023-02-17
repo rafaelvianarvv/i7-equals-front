@@ -7,14 +7,15 @@ import Button from '../../../layout/components/Button';
 import InputDatePicker from "../../../layout/components/InputDatePicker";
 import Pagination from "../../../layout/components/Pagination";
 
-import { BASE_URL, URL_TITULOS_ENVIADOS } from "../../../../utils/requests";
+import { BASE_URL, URL_TITULOS_RECEBER } from "../../../../utils/requests";
 import TitulosLista from "../pesquisados/TitulosLista";
 import Loading from "../../../layout/components/Loading";
+import ListaLoteReceber from "./ListaLoteReceber";
+import Input from "../../../layout/components/Input";
 
 function LoteReceber() {
-  const [dataInicio, setDataInicio] = useState(new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1));
-  const [dataFim, setDataFim] = useState(new Date((new Date()).getFullYear(), (new Date()).getMonth() + 1, 0));
-  const [removeLoading, setRemoveLoading] = useState(false);
+  const [removeLoading, setRemoveLoading] = useState(true);
+  const [consulta, setConsulta] = useState({dataInicial: '01-11-2022', dataFinal: '28-02-2023'});
 
   const [pageNumber, setPageNumber] = useState(0);
   const [page, setPage] = useState({
@@ -29,23 +30,34 @@ function LoteReceber() {
     empty: true,
   });
 
-  const [_, forceUpdate] = useReducer((x) => x + 1, 0);
-
-  useEffect(() => {
+  const consultarDados = () => {
     axios
-      .get(`${BASE_URL}${URL_TITULOS_ENVIADOS}?size=25&page=${pageNumber}&dataInicio=${moment(dataInicio).format('DD-MM-YYYY')}&dataFim=${moment(dataFim).format('DD-MM-YYYY')}`)
-      .then((response) => {
-        const data = response.data;
-        setPage(data);
-        setRemoveLoading(true);
-        console.log('passou aqui')
-      });
-  }, [pageNumber]);
-
-  const handlePageChange = (newPageNumber) => {    
-    setRemoveLoading(false)
-    setPageNumber(newPageNumber);
+        .get(`${BASE_URL}${URL_TITULOS_RECEBER}?size=25&page=${pageNumber}&dataInicial=${consulta.dataInicial}&dataFinal=${consulta.dataFinal}`)
+        .then((response) => {
+          const data = response.data;
+          setPage(data);
+          setRemoveLoading(true);
+        });
   }
+
+  // useEffect(() => {
+  //   consultarDados();
+  // }, [pageNumber]);
+
+  function submit(e) {
+    e.preventDefault();
+    setRemoveLoading(false);
+    consultarDados();
+  }
+
+  function handleChange(e) {
+    setConsulta({...consulta, [e.target.name]: e.target.value})
+  }
+
+  // const handlePageChange = (newPageNumber) => {    
+  //   setRemoveLoading(false)
+  //   setPageNumber(newPageNumber);
+  // }
 
   return (
     <div className={styles.titulos_container}>
@@ -56,23 +68,33 @@ function LoteReceber() {
 
         <div className={styles.pesquisa_titulos_container}>
 
-            <form onSubmit={forceUpdate} className={styles.form}>
+            <form onSubmit={submit} className={styles.form}>
 
               <div className={styles.pesquisa_titulos_container_campos}>
+                
                 <div className={styles.campo_pesquisa}>
-                  <InputDatePicker
-                      text="Data Inicial"
-                      value={dataInicio ? dataInicio : ''}
-                      handleOnChange={setDataInicio}
+                
+                  <Input
+                    type="text"
+                    text="Data Vencimento Inicial"
+                    name="dataInicial"
+                    placeholder="Data Inicial"
+                    handleOnChange={handleChange}
+                    value = {consulta.dataInicial ? consulta.dataInicial : ''}
                   />
                 </div>
+
                 <div className={styles.campo_pesquisa}>
-                  <InputDatePicker
-                        text="Data Fim"
-                        value={dataFim ? dataFim : ''}
-                        handleOnChange={setDataFim}
-                    />
+                  <Input 
+                    type="text"
+                    text="Data Vencimento Final"
+                    name="dataFinal"
+                    placeholder="Data Final"
+                    handleOnChange={handleChange}
+                    value = {consulta.dataFinal ? consulta.dataFinal : ''}
+                  />
                 </div>
+
                 <div className={styles.button}>
                   <Button text='Pesquisar' />
                 </div>
@@ -91,12 +113,12 @@ function LoteReceber() {
           {page.content.length > 0 && (
             <div>
               <div>
-                <TitulosLista page={page} handlePageChange={handlePageChange} />
+                <ListaLoteReceber lotes = {page.content} />
               </div>
-              {!removeLoading && <Loading />}
-              <div>
+              
+              {/* <div>
                 <Pagination page={page} onChange={handlePageChange} />
-              </div>
+              </div> */}
             </div>
           )}
         </div>
